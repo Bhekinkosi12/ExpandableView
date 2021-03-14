@@ -14,16 +14,21 @@ namespace ExpandableViewSample
         }
 
         private ICommand _tapCommand;
+        
         public ICommand TapCommand => _tapCommand ?? (_tapCommand = new Command(p =>
         {
             DisplayAlert("Tapped", p.ToString(), "Ok");
         }));
+        
+        
 
         protected override void OnAppearing()
         {
             base.OnAppearing();
             expandableView.StatusChanged += OnStatusChanged;
         }
+        
+        
 
         protected override void OnDisappearing()
         {
@@ -33,6 +38,8 @@ namespace ExpandableViewSample
 
         private async void OnStatusChanged(object sender, StatusChangedEventArgs e)
         {
+        
+        
             var rotation = 0;
             switch(e.Status)
             {
